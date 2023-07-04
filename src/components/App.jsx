@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
@@ -11,8 +11,19 @@ function App(){
    const [listItems, setListItem] = useState([])
 
    const addNote=(note)=>{
+    console.log(" Note=> ",note);
         setListItem(prevNotes =>{
             return[...prevNotes, note]
+        })
+   }
+
+ 
+
+   const deleteNote=(id)=>{
+        setListItem(prevNotes =>{
+            return prevNotes.filter((listItems,index)=>{
+                return index!==id
+            })
         })
    }
 
@@ -28,6 +39,7 @@ function App(){
                         key={index}
                         title={list.title}
                         content={list.content}
+                        onDelete={deleteNote}
                     />
                 )
             })}

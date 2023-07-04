@@ -4,6 +4,8 @@
 
 body{
     background: #eee;
+    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+
 }
 
 header h1{
@@ -51,4 +53,69 @@ footer{
 
 footer p{
     color: #ccc;
+}
+
+
+form.create-note {
+    position: relative;
+    width: 480px;
+    margin: 30px auto 20px auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+}
+
+form.create-note input, form.create-note textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 4px;
+    font-family: inherit;
+    resize: none;
+    font-size: 1.2em;
+}
+
+form.create-note button{
+    position: absolute;
+    right: 20px;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    outline: none;
+    font-family: inherit;
+    font-weight: 200;
+    border: none;
+    color: #fff;
+    background: #f5ba13;
+    top: 133px;
+}
+
+.note button{
+    background-color:#fff;
+    outline: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    float: right;
+    color: #f5ba13;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    margin-right: 15px;
+}
+
+
+.MuiSvgIcon-root{
+    margin-top: 3px;
+}
+
+.MuiSvgIcon-root:hover{
+    color: black;
+}
+
+.MuiButtonBase-root{
+    float: right;
 }

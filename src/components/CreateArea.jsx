@@ -1,4 +1,7 @@
 import React , { useState } from "react";
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
 
 export default function CreateArea(props) {
 
@@ -6,6 +9,13 @@ export default function CreateArea(props) {
         title:"",
         content:""
     })
+
+    const [isExpanded, setExpanded]=useState(false)
+
+
+    const handleClick=()=>{
+        setExpanded(true)
+    }
 
     const handleChange=(event)=>{
          const {name , value} = event.target
@@ -18,6 +28,17 @@ export default function CreateArea(props) {
         })
 
     }
+
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault(); 
+            props.onAdd(keepNote)
+            setKeepNote({
+                title: "",
+                content: ""
+              });
+        }
+      };
 
     const submitNote=(event)=>{
 
@@ -32,10 +53,15 @@ export default function CreateArea(props) {
 
   return (
     <div>
-        <form>
-            <input onChange={handleChange} name="title" type="text" value={keepNote.title} placeholder="Title" />
-            <textarea onChange={handleChange} name="content" value={keepNote.content} placeholder="Take a note..." rows={3} />
-            <button onClick={submitNote} >Add</button>
+        <form className="create-note">
+                {isExpanded &&  (<input onChange={handleChange} name="title" type="text" value={keepNote.title} placeholder="Title" />)}     
+
+                <textarea onClick={handleClick} onChange={handleChange} name="content" value={keepNote.content} onKeyDown={handleKeyDown} placeholder="Take a note..." rows={isExpanded ? 3 : 1} />
+                <Zoom in={isExpanded}>
+                <Fab onClick={submitNote} >
+                    <AddIcon/>
+                </Fab>
+            </Zoom>
         </form>
     </div>
   )
