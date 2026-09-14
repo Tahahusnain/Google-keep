@@ -1,121 +1,175 @@
-*{
-    margin: 0;
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 20.2% 65.1%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 216 34% 17%;
+  }
 }
 
-body{
-    background: #eee;
-    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
 }
 
-header h1{
-    background-color:#f5ba13;
-    font-family: 'McLaren', cursive;
-    font-weight: 200;
-    font-size: 2rem;
-    color: white;
-    padding: 15px 32px;
-    box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.3);
+body {
+  background: #eee;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
 
-.note{
-    background-color:#fff;
-    box-shadow: 0 2px 5px #ccc;
-    border-radius: 7px;
-    padding: 10px;
-    margin: 18px 33px 18px;
-    width: 240px;
-    float: left;
+header h1 {
+  background-color: #f5ba13;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+  font-size: 2rem;
+  color: white;
+  padding: 15px 32px;
+  box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.3);
 }
 
-.note h1{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
-    margin-bottom: 6px;
+.note {
+  background-color: #fff;
+  box-shadow: 0 2px 5px #ccc;
+  border-radius: 7px;
+  padding: 10px;
+  margin: 18px 33px 18px;
+  width: 240px;
+  float: left;
 }
 
-.note p{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+.note h1 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1em;
+  margin-bottom: 6px;
 }
 
-footer{
-
-    position: absolute;
-    text-align: center ;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
+.note p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
-footer p{
-    color: #ccc;
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
 
+footer p {
+  color: #ccc;
+}
 
 form.create-note {
-    position: relative;
-    width: 480px;
-    margin: 30px auto 20px auto;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
-    background: #fff;
-    padding: 15px;
-    border-radius: 7px;
-    box-shadow: 0 1px 5px rgb(138, 137, 137);
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1em;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
 
-form.create-note input, form.create-note textarea{
-    width: 100%;
-    border: none;
-    outline: none;
-    padding: 4px;
-    font-family: inherit;
-    resize: none;
-    font-size: 1.2em;
+form.create-note input,
+form.create-note textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 4px;
+  font-family: inherit;
+  resize: none;
+  font-size: 1.2em;
 }
 
-form.create-note button{
-    position: absolute;
-    right: 20px;
-    height: 36px;
-    width: 36px;
-    border-radius: 50%;
-    outline: none;
-    font-family: inherit;
-    font-weight: 200;
-    border: none;
-    color: #fff;
-    background: #f5ba13;
-    top: 133px;
+form.create-note button {
+  position: absolute;
+  right: 20px;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  outline: none;
+  font-family: inherit;
+  font-weight: 200;
+  border: none;
+  color: #fff;
+  background: #f5ba13;
+  top: 133px;
 }
 
-.note button{
-    background-color:#fff;
-    outline: none;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    float: right;
-    color: #f5ba13;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    margin-right: 15px;
+.note button {
+  background-color: #fff;
+  outline: none;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  float: right;
+  color: #f5ba13;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  margin-right: 15px;
 }
 
-
-.MuiSvgIcon-root{
-    margin-top: 3px;
+.MuiSvgIcon-root {
+  margin-top: 3px;
 }
 
-.MuiSvgIcon-root:hover{
-    color: black;
+.MuiSvgIcon-root:hover {
+  color: black;
 }
 
-.MuiButtonBase-root{
-    float: right;
+.MuiButtonBase-root {
+  float: right;
 }

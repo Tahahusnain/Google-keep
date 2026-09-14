@@ -4,55 +4,52 @@ import Footer from "./Footer";
 import Note from "./Note";
 // import notes from "../note";
 import CreateArea from "./CreateArea";
+import DynamicFormBuilder from "./DynamicForm";
 
+function App() {
+  // const [listItems, setListItem] = useState([]);
 
-function App(){ 
+  // const addNote = (note) => {
+  //   // Adding a unique id to each note using Date.now() to ensure uniqueness
 
-   const [listItems, setListItem] = useState([])
+  //   const newNote = { ...note, id: Date.now() };
+  //   setListItem((prevNotes) => {
+  //     return [...prevNotes, newNote];
+  //   });
+  // };
 
-   const addNote=(note)=>{
-    console.log(" Note=> ",note);
-        setListItem(prevNotes =>{
-            return[...prevNotes, note]
-        })
-   }
+  // const deleteNote = (id) => {
+  //   console.log(id);
+  //   setListItem((prevNotes) => {
+  //     return prevNotes.filter((note) => note.id !== id);
+  //   });
+  // };
 
- 
+  return (
+    <div>
+      <DynamicFormBuilder />
+      {/* <Header />
+      <CreateArea onAdd={addNote} /> */}
+      {/* 
+      {listItems.map((list) => {
+        return (
+          <Note
+            key={list.id}
+            id={list.id}
+            title={list.title}
+            content={list.content}
+            onDelete={deleteNote}
+          />
+        );
+      })}
 
-   const deleteNote=(id)=>{
-        setListItem(prevNotes =>{
-            return prevNotes.filter((listItems,index)=>{
-                return index!==id
-            })
-        })
-   }
+      {/* <Note key={1} title="Note title" content="Note Content"/> */}
 
-    return (
-        <div>
-            <Header/>
-            <CreateArea onAdd={addNote} />
-
-            {listItems.map((list,index)=>{
-                return(
-                    <Note
-                        id={index}
-                        key={index}
-                        title={list.title}
-                        content={list.content}
-                        onDelete={deleteNote}
-                    />
-                )
-            })}
-
-            {/* <Note key={1} title="Note title" content="Note Content"/> */}
-               
-            <Footer/>
-            
-        </div>
-    
-)
+      {/* <Footer /> */}
+    </div>
+  );
 }
-export default App
+export default App;
 
 // {notes.map(keepNotes=>{
 //     return(
