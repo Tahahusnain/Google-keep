@@ -1,0 +1,15 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+env:
+  NODE_ENV: production
+jobs:
+  build:
+    if: github.ref=='ref/heads/master'
+    env:
+      BUILD_ID: 124
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "No steps added"
